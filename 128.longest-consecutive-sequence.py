@@ -14,15 +14,12 @@ class Solution:
         maxSequence = 0
         for num in nums:
             count = 0
-            if num - 1 in uniqueNumbers:
-                continue
-            else:
+            if num - 1 not in uniqueNumbers:
                 count = 1
-                while (num + 1 in uniqueNumbers):
+                while (num + count in uniqueNumbers):
                     count += 1
-                    num += 1
-                if count > maxSequence:
-                    maxSequence = count
+                
+                maxSequence = max(maxSequence, count)
         
         return maxSequence
             
