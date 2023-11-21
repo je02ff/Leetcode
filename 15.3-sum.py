@@ -5,18 +5,30 @@
 #
 
 # @lc code=start
+from typing import List
+
+
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        indexMap = {}
         answerList = []
-        left = 0 
-        right = len(nums) - 1
+        nums.sort()
+        for index, value in enumerate(nums):
+            if index > 0 and value == nums[index - 1]:
+                continue
+            left = index + 1
+            right = len(nums) - 1
+            while (right > left):
+                if nums[index] + nums[left] + nums[right] == 0:
+                    answerList.append([nums[index], nums[left], nums[right]])
+                    left += 1
+                    while nums[left] == nums[left - 1] and left < right:
+                        left += 1
+                elif nums[index] + nums[left] + nums[right] > 0:
+                    right -= 1
+                else:
+                    left += 1
 
-        while right > left:
-            sum = nums[left] + nums[right]
-            if  -1*sum in indexMap:
-                answerList.append([nums[left], nums[right], nums[-sum]])
-        
         return answerList
+Solution().threeSum([-1,0,1,2,-1,-4])
 # @lc code=end
 
