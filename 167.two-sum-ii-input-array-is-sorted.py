@@ -9,25 +9,20 @@ from typing import List
 
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-            answer = []
-            for index, num in enumerate(numbers):
-                 
-            return answer
-    
-    def search(numbers: List[int]) -> bool:
-        l = 0
-        r = len(numbers) - 1
-        m = (r + 1)// 2
+        left = 0
+        right = len(numbers) - 1
 
-        if numbers[m] == target:
-            return m
-        
-        if numbers[m] > target:
-            self.search(numbers[::m], target)
-        else:
-            self.search(numbers[l::], target)
+        while right > left:
+            if numbers[left] + numbers[right] == target:
+                return [left+1, right+1] 
+
+            elif numbers[left] + numbers[right] > target:
+                right -= 1
+            else:
+                left += 1
 
 
-Solution().twoSum([2,7,11,15], 9)
+
+print(Solution().twoSum([2,7,11,15], 9))
 # @lc code=end
 
