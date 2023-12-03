@@ -5,6 +5,7 @@
 #
 
 # @lc code=start
+
 from typing import List
 
 class Solution:
@@ -22,7 +23,5 @@ class Solution:
 
 Solution().dailyTemperatures([73,74,75,71,69,72,76,73])
                 
-
-
 # @lc code=end
 
